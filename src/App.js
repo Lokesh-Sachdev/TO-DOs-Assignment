@@ -40,11 +40,11 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  // Toggle Reminder
-  const toggleReminder = (id) => {
+  // Toggle Complete
+  const toggleComplete = (id) => {
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
+        task.id === id ? { ...task, complete: !task.complete } : task
       )
     );
   };
@@ -57,7 +57,7 @@ function App() {
       />
       {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleComplete} />
       ) : (
         "No Tasks Avaiable"
       )}
